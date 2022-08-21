@@ -358,6 +358,12 @@ export class LiveGame {
 			
 			const participantId = event.participantId || -1;
 			let participant = this.options?.match.participantIdentities.find(p => p.participantId == participantId);
+			
+			this.data.events.Events.push({
+				EventID: nextEventId,
+				EventName: event.type,
+				EventTime: event.timestamp,
+			});
 
 			this.lastEventId++;
 			switch (event.type) {
